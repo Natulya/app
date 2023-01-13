@@ -28,5 +28,7 @@ module.exports = {
     'react/jsx-filename-extension': 0,
     'max-len': ['error', { code: 100 }],
     'linebreak-style': 0,
+    'jsx-a11y/click-events-have-key-events': 0,
+    'jsx-a11y/no-static-element-interactions': 0,
   },
 }

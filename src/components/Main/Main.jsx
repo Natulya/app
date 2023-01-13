@@ -1,10 +1,11 @@
 import { TodoList } from '../TodoList/TodoList'
 import mainStyles from './main.module.css'
 
-export function Main({ todos, deleteTodo, changeStatusTodo }) {
+export function Main() {
+  console.log('Render Main')
   return (
     <main className={mainStyles.wr}>
-      <TodoList todos={todos} deleteTodo={deleteTodo} changeStatusTodo={changeStatusTodo} />
+      <TodoList />
     </main>
   )
 }

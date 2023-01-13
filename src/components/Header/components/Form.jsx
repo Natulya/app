@@ -1,7 +1,12 @@
 import { useState } from 'react'
 
-export function Form({ addNewTodo }) {
+import { useTodoListMethodsContext } from '../../../contexts/TodoListContextProvider'
+
+export function Form() {
+  console.log('Render Form')
   const [title, setTitle] = useState('')
+
+  const { addNewTodo } = useTodoListMethodsContext()
 
   const changeHandler = (e) => {
     setTitle(e.target.value)

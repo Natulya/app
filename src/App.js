@@ -1,51 +1,18 @@
-import { useState } from 'react'
 import './App.css'
-import { Header } from './components/Header/Header'
+import { HeaderMemo as Header } from './components/Header/Header'
 import { Main } from './components/Main/Main'
 import { Footer } from './components/Footer/Footer'
 
 function App() {
-  const [todos, setTodos] = useState([])
-
-  const addNewTodo = (title) => {
-    const newTodo = {
-      id: crypto.randomUUID(),
-      completed: false,
-      title,
-    }
-
-    setTodos((prev) => [newTodo, ...prev])
-  }
-
-  const deleteTodo = (id) => {
-    setTodos((prev) => prev.filter((todo) => todo.id !== id))
-  }
-
-  const changeStatusTodo = (id) => {
-    setTodos((prev) => prev.map((todo) => {
-      if (todo.id === id) {
-        return {
-          ...todo,
-          completed: !todo.completed,
-        }
-      }
-      return todo
-    }))
-  }
-
-  const clearAllTodos = () => {
-    setTodos([])
-  }
-
-  console.log({ todos })
+  console.log('Render App')
 
   return (
     <div className="container py-5">
-      <Header addNewTodo={addNewTodo} />
+      <Header />
       <hr />
-      <Main todos={todos} deleteTodo={deleteTodo} changeStatusTodo={changeStatusTodo} />
+      <Main />
       <hr />
-      <Footer clearAllTodos={clearAllTodos} />
+      <Footer />
     </div>
   )
 }

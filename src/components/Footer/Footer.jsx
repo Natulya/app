@@ -1,6 +1,11 @@
+import { memo } from 'react'
+import { useTodoListMethodsContext } from '../../contexts/TodoListContextProvider'
 import foterStyles from './footer.module.css'
 
-export function Footer({ clearAllTodos }) {
+export const Footer = memo(() => {
+  console.log('Render Footer')
+  const { clearAllTodos } = useTodoListMethodsContext()
+
   const clearAllHandler = () => {
     clearAllTodos()
   }
@@ -14,4 +19,4 @@ export function Footer({ clearAllTodos }) {
       </div>
     </footer>
   )
-}
+})

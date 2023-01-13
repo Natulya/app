@@ -1,10 +1,14 @@
+import { memo } from 'react'
 import { Form } from './components/Form'
 import headerStyle from './header.module.css'
 
-export function Header({ addNewTodo }) {
+function Header() {
+  console.log('Render Header')
   return (
     <header className={headerStyle.wr}>
-      <Form addNewTodo={addNewTodo} />
+      <Form />
     </header>
   )
 }
+
+export const HeaderMemo = memo(Header)
