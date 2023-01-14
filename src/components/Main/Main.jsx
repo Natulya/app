@@ -5,6 +5,7 @@ export function Main() {
   console.log('Render Main')
   return (
     <main className={mainStyles.wr}>
+      MAIN PAGE
       <TodoList />
     </main>
   )

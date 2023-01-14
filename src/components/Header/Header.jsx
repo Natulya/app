@@ -1,12 +1,24 @@
 import { memo } from 'react'
-import { Form } from './components/Form'
+import { Link } from 'react-router-dom'
 import headerStyle from './header.module.css'
 
 function Header() {
   console.log('Render Header')
   return (
     <header className={headerStyle.wr}>
-      <Form />
+      <nav>
+        <ul className={headerStyle.headerMenu}>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/contacts">Contacts</Link>
+          </li>
+          <li>
+            <Link to="/todos">Todos</Link>
+          </li>
+        </ul>
+      </nav>
     </header>
   )
 }
