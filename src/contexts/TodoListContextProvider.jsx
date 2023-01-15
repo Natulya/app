@@ -11,7 +11,7 @@ export function TodoListContextProvider({ children }) {
     todos, ...methods
   } = useTodos()
 
-  const todoListMethods = useMemo(() => methods, [])
+  const todoListMethods = useMemo(() => methods, [todos])
 
   return (
     <TodoListContext.Provider value={todos}>

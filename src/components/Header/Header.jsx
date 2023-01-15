@@ -1,5 +1,6 @@
+import classNames from 'classnames'
 import { memo } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import headerStyle from './header.module.css'
 
 function Header() {
@@ -12,10 +13,20 @@ function Header() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/contacts">Contacts</Link>
+            <NavLink
+              className={({ isActive }) => classNames({ [headerStyle.activeLink]: isActive })}
+              to="/contacts"
+            >
+              Contacts
+            </NavLink>
           </li>
           <li>
-            <Link to="/todos">Todos</Link>
+            <NavLink
+              className={({ isActive }) => classNames({ [headerStyle.activeLink]: isActive })}
+              to="/todos"
+            >
+              Todos
+            </NavLink>
           </li>
         </ul>
       </nav>

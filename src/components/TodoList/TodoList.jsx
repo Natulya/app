@@ -1,5 +1,5 @@
 import { useTodoListContext } from '../../contexts/TodoListContextProvider'
-import { TodoItem } from '../TodoItem/TodoItem'
+import { TodoListItem } from '../TodoListItem/TodoListItem'
 
 export function TodoList() {
   console.log('Render TodoList')
@@ -12,7 +12,7 @@ export function TodoList() {
   return (
     <ul className="list-group">
       {todos.map((todo, index) => (
-        <TodoItem
+        <TodoListItem
           key={todo.id}
           id={todo.id}
           title={todo.title}

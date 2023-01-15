@@ -1,4 +1,5 @@
 import classNames from 'classnames'
+import { useNavigate } from 'react-router-dom'
 import { useTodoListMethodsContext } from '../../../../contexts/TodoListContextProvider'
 import { Modal } from '../../../Modal/Modal'
 
@@ -6,7 +7,7 @@ export function DeleteTodoModal({
   setIsDeleteModalOpen, isOpen, title, id,
 }) {
   const { deleteTodo } = useTodoListMethodsContext()
-
+  const navigate = useNavigate()
   const closeDeleteModalHandler = () => {
     setIsDeleteModalOpen(false)
   }
@@ -14,6 +15,9 @@ export function DeleteTodoModal({
   const deleteHandler = () => {
     deleteTodo(id)
     closeDeleteModalHandler()
+    navigate('..', {
+      relative: 'path',
+    })
   }
 
   return (

@@ -24,6 +24,8 @@ export const useTodos = () => {
     setTodos((prev) => [newTodo, ...prev])
   }, [])
 
+  const getTodoById = (id) => todos.find((todo) => todo.id === id)
+
   const deleteTodo = useCallback((id) => {
     setTodos((prev) => prev.filter((todo) => todo.id !== id))
   }, [setTodos])
@@ -63,5 +65,6 @@ export const useTodos = () => {
     changeStatusTodo,
     deleteTodo,
     editTodo,
+    getTodoById,
   }
 }
