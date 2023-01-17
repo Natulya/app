@@ -31,7 +31,7 @@ const router = createBrowserRouter([
         element: <TodosCreate />,
       },
     ],
-  }, { basename: '/app' },
+  },
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
