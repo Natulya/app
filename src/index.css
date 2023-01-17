@@ -12,3 +12,6 @@ code {
     monospace;
 }
 
+.error {
+  color: red;
+}

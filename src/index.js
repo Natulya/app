@@ -7,6 +7,7 @@ import { TodoListContextProvider } from './contexts/TodoListContextProvider'
 import { ContactsPage } from './components/Pages/ContactsPage/ContactsPage'
 import { TodosPage } from './components/Pages/TodosPage/TodosPage'
 import { TodoDetail } from './components/TodoDetail/TodoDetail'
+import { TodosCreate } from './components/TodosCreate/TodosCreate'
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: 'todos/:todoId',
         element: <TodoDetail />,
+      },
+      {
+        path: 'todos/create',
+        element: <TodosCreate />,
       },
     ],
   },
