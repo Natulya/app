@@ -12,7 +12,7 @@ export const createTodoFormValidationSchema = Yup.object({
     .required('Required'),
   tags: Yup.string()
     .oneOf(
-      ['sport', 'study'],
+      ['sport', 'study', 'new'],
       'Invalid Tag Type',
     )
     .required('Required'),
