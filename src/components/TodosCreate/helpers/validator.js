@@ -11,10 +11,6 @@ export const createTodoFormValidationSchema = Yup.object({
     .url()
     .required('Required'),
   tags: Yup.string()
-    .oneOf(
-      ['sport', 'study', 'new'],
-      'Invalid Tag Type',
-    )
     .required('Required'),
   deadLine: Yup.date().default(() => new Date(new Date().setDate(new Date().getDate() + 7))),
 })

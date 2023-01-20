@@ -11,7 +11,6 @@ function App() {
       <Header />
       <hr />
       <Outlet />
-      <hr />
       <Footer />
     </div>
   )

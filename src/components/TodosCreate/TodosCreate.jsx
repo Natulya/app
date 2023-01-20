@@ -1,7 +1,10 @@
+import { useMutation } from '@tanstack/react-query'
 import {
   Formik, Form, Field, ErrorMessage,
 } from 'formik'
-import { createTodoFormValidationSchema } from './validator'
+import { useNavigate } from 'react-router-dom'
+import { prepareData } from './helpers/utils'
+import { createTodoFormValidationSchema } from './helpers/validator'
 
 const initialValues = {
   title: '',
@@ -12,8 +15,23 @@ const initialValues = {
 }
 
 export function TodosCreate() {
-  const submitHandler = (values) => {
-    console.log({ values })
+  const navigate = useNavigate()
+
+  const { mutateAsync, isLoading } = useMutation({
+    mutationFn: (data) => fetch('http://localhost:3005/todos', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    }).then((res) => res.json()),
+  })
+
+  const submitHandler = async (values) => {
+    const preparedData = prepareData(values)
+    const response = await mutateAsync(preparedData)
+    // navigate('/todos')
+    navigate(`/todos/${response.id}`)
   }
 
   return (
@@ -38,7 +56,7 @@ export function TodosCreate() {
         <Field name="deadLine" type="date" />
         <ErrorMessage className="error" component="p" name="deadLine" />
 
-        <button type="submit">Submit</button>
+        <button disabled={isLoading} type="submit">Submit</button>
       </Form>
     </Formik>
   )
